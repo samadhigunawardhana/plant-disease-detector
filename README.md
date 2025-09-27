@@ -31,3 +31,37 @@ Downloaded in Colab via `kagglehub`, then loaded directly from its cache path.
 ---
 
 ## Repository Structure
+
+
+
+---
+
+## How to Reproduce (Colab, CPU)
+1. Open `notebooks/PlantDisease_Colab.ipynb` in Google Colab.  
+2. **Runtime → Change runtime type → Hardware accelerator = None** (CPU).  
+3. Run all cells. The notebook:
+   - downloads the dataset via `kagglehub`
+   - builds the input pipelines with preprocessing/augmentation
+   - trains **Small CNN** and **MobileNetV2**
+   - evaluates on the **test** set (Accuracy, Precision, Recall, F1)
+   - saves artifacts to `/content/models/`:
+     - `plant_mobilenetv2.keras` (best model)
+     - `plant_smallcnn.keras`
+     - `labels.json`
+     - `*_cm.png` confusion matrices
+
+---
+
+## Run the Demo App Locally (VS Code)
+1. Download the trained model and place it in `models/`:
+   - **Model (MobileNetV2):**  
+     👉 [Download `plant_mobilenetv2.keras`](https://github.com/samadhigunawardhana/plant-disease-detector/releases/download/v1.0.0/plant_mobilenetv2.keras)
+   - `labels.json` is already included in this repo.
+2. Create a virtual env and install deps:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate          # macOS/Linux
+   pip install -r requirements.txt
+
+## DEMO VIDEO LINK
+youtube link(Unlisted)- https://youtu.be/6uR40DeM8Ag 
